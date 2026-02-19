@@ -5,23 +5,23 @@ type Props={
 }
 
 
-export const generateMetadata=async({params}:Props):Promise<Metadata>=>{
+export  async  function generateMetadata({params}:Props):Promise<Metadata>{
+    const {id}=await params;
 
-    const id=(await params).id;
-    return{
-        title:`Product ${id}`
-    }
+    return(
+        {
+            title:`the id is ${id}`
+        }
+    )
 
 }
 
+export default async function gettingId({params}:Props){
 
+    const {id}=await params;
 
-export default async function ProductListItems({params}:Props){
-
-    const productid=(await params).id;
     return(
-        <h1>
-            The Id is {productid};
-        </h1>
+        <h1>The Id is {id}</h1>
     )
+
 }
